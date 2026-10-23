@@ -1,10 +1,198 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Midnight Crate: JavaScript practice by Aida Mukusheva."><title>Make a night of it. | Midnight Crate</title><link rel="stylesheet" href="css/style.css"><script src="js/task3.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header><div class="wrap top"><a class="brand" href="index.html">MIDNIGHT <span>CRATE.</span></a><span class="edition">THE AFTER-HOURS LAB / 2026</span></div><nav class="wrap" aria-label="Main navigation"><a href="index.html">Overview</a><a href="task1.html">01 / Price game</a><a href="task2.html">02 / Prep board</a><a href="task3.html" aria-current="page">03 / Night tickets</a></nav></header>
-<main id="main" class="wrap"><div class="page-head"><p class="eyebrow">AIDA MUKUSHEVA / IT-2509 / ASSIGNMENT 05</p><h1>Make a night of it.</h1><p class="intro">Choose a pop-up event and build your ticket. Required fields are marked *. This is a local booking demonstration.</p></div><div class="form-layout"><section class="panel"><p class="eyebrow">03 / TICKET BUILDER</p><h2>Your booking details</h2><form id="ticket-form"><p id="error-summary" class="notice danger" role="alert" hidden></p><div class="form-grid"><div class="field"><label for="event">Event *</label><select id="event" name="event" required aria-describedby="event-error"><option value="">Choose an event</option><option value="tasting">Midnight tasting</option><option value="study">Study &amp; snacks</option></select><p id="event-error" class="error" hidden></p></div>
-<div class="field"><label for="date">Event date *</label><input id="date" name="date" type="date" min="2026-11-06" max="2026-11-08" required aria-describedby="date-help date-error"><small id="date-help">6–8 November 2026. Tasting: 7 Nov sold out. Study: 8 Nov sold out.</small><p id="date-error" class="error" hidden></p></div>
-<div class="field"><label for="ticket-type">Ticket type *</label><select id="ticket-type" name="ticketType" required aria-describedby="stock-note ticket-type-error"><option value="">Choose a ticket</option><option value="standard">Standard / 2,000 ₸ / 8 left</option><option value="duo">Duo / 3,500 ₸ / 4 left</option><option value="vip">Tasting VIP / 5,000 ₸ / 2 left</option></select><small id="stock-note">Demo inventory is per event and date. Duo admits 2 people per ticket. VIP is only for Midnight tasting.</small><p id="ticket-type-error" class="error" hidden></p></div>
-<div class="field"><label for="quantity">Quantity *</label><input id="quantity" name="quantity" type="number" min="1" max="8" step="1" value="1" required aria-describedby="quantity-error"><p id="quantity-error" class="error" hidden></p></div>
-<div class="field"><label for="full-name">Full name *</label><input id="full-name" name="fullName" type="text" minlength="2" maxlength="60" autocomplete="name" required aria-describedby="full-name-error"><p id="full-name-error" class="error" hidden></p></div>
-<div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" maxlength="100" autocomplete="email" required aria-describedby="email-error"><p id="email-error" class="error" hidden></p></div>
-<div class="field full"><label for="promo">Promo code (optional)</label><input id="promo" name="promo" type="text" maxlength="20" aria-describedby="promo-help promo-error"><small id="promo-help">NIGHT10: 10% off. DUO15: 15% off Duo tickets. Codes ignore case and surrounding spaces.</small><p id="promo-error" class="error" hidden></p></div></div><div class="actions"><button type="submit">Create demo ticket →</button><button type="reset" class="secondary">Clear form</button></div></form></section><aside><section class="panel preview"><p class="eyebrow">LIVE PREVIEW</p><h2>Your night, at a glance.</h2><div id="ticket-preview" aria-live="polite"></div><p class="muted">A preview is not a confirmed ticket. Create a ticket after every field is valid.</p></section><section id="ticket-result" class="panel success" tabindex="-1" aria-label="Created ticket" hidden></section></aside></div><noscript><p class="notice">Enable JavaScript to use the interactive tasks.</p></noscript></main><footer class="wrap">Midnight Crate / A student JavaScript project. Demo only; no real purchases or bookings.</footer></body></html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Midnight Crate: JavaScript practice by Aida Mukusheva.">
+        <title>
+            Make a night of it. | Midnight Crate
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/task3.js" defer>
+        </script>
+    </head>
+    <body>
+        <a class="skip" href="#main">
+            Skip to content
+        </a>
+        <header>
+            <div class="wrap top">
+                <a class="brand" href="index.html">
+                    MIDNIGHT
+                    <span>
+                        CRATE.
+                    </span>
+                </a>
+                <span class="edition">
+                    THE AFTER-HOURS LAB / 2026
+                </span>
+            </div>
+            <nav class="wrap" aria-label="Main navigation">
+                <a href="index.html">
+                    Overview
+                </a>
+                <a href="task1.html">
+                    01 / Price game
+                </a>
+                <a href="task2.html">
+                    02 / Prep board
+                </a>
+                <a href="task3.html" aria-current="page">
+                    03 / Night tickets
+                </a>
+            </nav>
+        </header>
+        <main id="main" class="wrap">
+            <div class="page-head">
+                <p class="eyebrow">
+                    AIDA MUKUSHEVA / IT-2509 / ASSIGNMENT 05
+                </p>
+                <h1>
+                    Make a night of it.
+                </h1>
+                <p class="intro">
+                    Choose a pop-up event and build your ticket. Required fields are marked *. This is a local booking demonstration.
+                </p>
+            </div>
+            <div class="form-layout">
+                <section class="panel">
+                    <p class="eyebrow">
+                        03 / TICKET BUILDER
+                    </p>
+                    <h2>
+                        Your booking details
+                    </h2>
+                    <form id="ticket-form">
+                        <p id="error-summary" class="notice danger" role="alert" hidden>
+                        </p>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="event">
+                                    Event *
+                                </label>
+                                <select id="event" name="event" required aria-describedby="event-error">
+                                    <option value="">
+                                        Choose an event
+                                    </option>
+                                    <option value="tasting">
+                                        Midnight tasting
+                                    </option>
+                                    <option value="study">
+                                        Study
+                                        &amp;
+                                        snacks
+                                    </option>
+                                </select>
+                                <p id="event-error" class="error" hidden>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label for="date">
+                                    Event date *
+                                </label>
+                                <input id="date" name="date" type="date" min="2026-11-06" max="2026-11-08" required aria-describedby="date-help date-error">
+                                <small id="date-help">
+                                    6–8 November 2026. Tasting: 7 Nov sold out. Study: 8 Nov sold out.
+                                </small>
+                                <p id="date-error" class="error" hidden>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label for="ticket-type">
+                                    Ticket type *
+                                </label>
+                                <select id="ticket-type" name="ticketType" required aria-describedby="stock-note ticket-type-error">
+                                    <option value="">
+                                        Choose a ticket
+                                    </option>
+                                    <option value="standard">
+                                        Standard / 2,000 ₸ / 8 left
+                                    </option>
+                                    <option value="duo">
+                                        Duo / 3,500 ₸ / 4 left
+                                    </option>
+                                    <option value="vip">
+                                        Tasting VIP / 5,000 ₸ / 2 left
+                                    </option>
+                                </select>
+                                <small id="stock-note">
+                                    Demo inventory is per event and date. Duo admits 2 people per ticket. VIP is only for Midnight tasting.
+                                </small>
+                                <p id="ticket-type-error" class="error" hidden>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label for="quantity">
+                                    Quantity *
+                                </label>
+                                <input id="quantity" name="quantity" type="number" min="1" max="8" step="1" value="1" required aria-describedby="quantity-error">
+                                <p id="quantity-error" class="error" hidden>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label for="full-name">
+                                    Full name *
+                                </label>
+                                <input id="full-name" name="fullName" type="text" minlength="2" maxlength="60" autocomplete="name" required aria-describedby="full-name-error">
+                                <p id="full-name-error" class="error" hidden>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label for="email">
+                                    Email *
+                                </label>
+                                <input id="email" name="email" type="email" maxlength="100" autocomplete="email" required aria-describedby="email-error">
+                                <p id="email-error" class="error" hidden>
+                                </p>
+                            </div>
+                            <div class="field full">
+                                <label for="promo">
+                                    Promo code (optional)
+                                </label>
+                                <input id="promo" name="promo" type="text" maxlength="20" aria-describedby="promo-help promo-error">
+                                <small id="promo-help">
+                                    NIGHT10: 10% off. DUO15: 15% off Duo tickets. Codes ignore case and surrounding spaces.
+                                </small>
+                                <p id="promo-error" class="error" hidden>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button type="submit">
+                                Create demo ticket →
+                            </button>
+                            <button type="reset" class="secondary">
+                                Clear form
+                            </button>
+                        </div>
+                    </form>
+                </section>
+                <aside>
+                    <section class="panel preview">
+                        <p class="eyebrow">
+                            LIVE PREVIEW
+                        </p>
+                        <h2>
+                            Your night, at a glance.
+                        </h2>
+                        <div id="ticket-preview" aria-live="polite">
+                        </div>
+                        <p class="muted">
+                            A preview is not a confirmed ticket. Create a ticket after every field is valid.
+                        </p>
+                    </section>
+                    <section id="ticket-result" class="panel success" tabindex="-1" aria-label="Created ticket" hidden>
+                    </section>
+                </aside>
+            </div>
+            <noscript>
+                <p class="notice">
+                    Enable JavaScript to use the interactive tasks.
+                </p>
+            </noscript>
+        </main>
+        <footer class="wrap">
+            Midnight Crate / A student JavaScript project. Demo only; no real purchases or bookings.
+        </footer>
+    </body>
+</html>

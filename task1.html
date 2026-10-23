@@ -1,4 +1,144 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Midnight Crate: JavaScript practice by Aida Mukusheva."><title>Higher. Lower. Keep going. | Midnight Crate</title><link rel="stylesheet" href="css/style.css"><script src="js/task1.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header><div class="wrap top"><a class="brand" href="index.html">MIDNIGHT <span>CRATE.</span></a><span class="edition">THE AFTER-HOURS LAB / 2026</span></div><nav class="wrap" aria-label="Main navigation"><a href="index.html">Overview</a><a href="task1.html" aria-current="page">01 / Price game</a><a href="task2.html">02 / Prep board</a><a href="task3.html">03 / Night tickets</a></nav></header>
-<main id="main" class="wrap"><div class="page-head"><p class="eyebrow">AIDA MUKUSHEVA / IT-2509 / ASSIGNMENT 05</p><h1>Higher. Lower. Keep going.</h1><p class="intro">Predict the next random snack price. Equal prices count as a correct guess in either direction.</p></div><div class="game-layout"><section class="panel game-panel" aria-labelledby="game-title"><p class="eyebrow">01 / HIGHER OR LOWER</p><h2 id="game-title">What comes next?</h2><div class="price-display"><span>Current price</span><strong id="current-price"></strong><small id="price-range"></small></div><div id="game-controls" class="actions"><button type="button" data-guess="higher">Higher ↑</button><button type="button" data-guess="lower" class="secondary">Lower ↓</button></div><p id="game-message" class="notice" role="status"></p><button id="restart" class="text-button" type="button">Start a new round ↻</button></section><aside class="panel"><p class="eyebrow">YOUR SCORECARD</p><dl class="stats"><div><dt>Lives left</dt><dd id="lives"></dd></div><div><dt>Current streak</dt><dd id="streak"></dd></div><div><dt>Best this visit</dt><dd id="best"></dd></div></dl><h2>How to play</h2><ol class="instructions"><li>Look at the current price.</li><li>Guess the direction of the next price.</li><li>A wrong guess costs one life. A correct guess adds to your streak.</li></ol><p>The best streak survives a restart during this page visit. Reloading clears it.</p></aside></div><noscript><p class="notice">Enable JavaScript to use the interactive tasks.</p></noscript></main><footer class="wrap">Midnight Crate / A student JavaScript project. Demo only; no real purchases or bookings.</footer></body></html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Midnight Crate: JavaScript practice by Aida Mukusheva.">
+        <title>
+            Higher. Lower. Keep going. | Midnight Crate
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/task1.js" defer>
+        </script>
+    </head>
+    <body>
+        <a class="skip" href="#main">
+            Skip to content
+        </a>
+        <header>
+            <div class="wrap top">
+                <a class="brand" href="index.html">
+                    MIDNIGHT
+                    <span>
+                        CRATE.
+                    </span>
+                </a>
+                <span class="edition">
+                    THE AFTER-HOURS LAB / 2026
+                </span>
+            </div>
+            <nav class="wrap" aria-label="Main navigation">
+                <a href="index.html">
+                    Overview
+                </a>
+                <a href="task1.html" aria-current="page">
+                    01 / Price game
+                </a>
+                <a href="task2.html">
+                    02 / Prep board
+                </a>
+                <a href="task3.html">
+                    03 / Night tickets
+                </a>
+            </nav>
+        </header>
+        <main id="main" class="wrap">
+            <div class="page-head">
+                <p class="eyebrow">
+                    AIDA MUKUSHEVA / IT-2509 / ASSIGNMENT 05
+                </p>
+                <h1>
+                    Higher. Lower. Keep going.
+                </h1>
+                <p class="intro">
+                    Predict the next random snack price. Equal prices count as a correct guess in either direction.
+                </p>
+            </div>
+            <div class="game-layout">
+                <section class="panel game-panel" aria-labelledby="game-title">
+                    <p class="eyebrow">
+                        01 / HIGHER OR LOWER
+                    </p>
+                    <h2 id="game-title">
+                        What comes next?
+                    </h2>
+                    <div class="price-display">
+                        <span>
+                            Current price
+                        </span>
+                        <strong id="current-price">
+                        </strong>
+                        <small id="price-range">
+                        </small>
+                    </div>
+                    <div id="game-controls" class="actions">
+                        <button type="button" data-guess="higher">
+                            Higher ↑
+                        </button>
+                        <button type="button" data-guess="lower" class="secondary">
+                            Lower ↓
+                        </button>
+                    </div>
+                    <p id="game-message" class="notice" role="status">
+                    </p>
+                    <button id="restart" class="text-button" type="button">
+                        Start a new round ↻
+                    </button>
+                </section>
+                <aside class="panel">
+                    <p class="eyebrow">
+                        YOUR SCORECARD
+                    </p>
+                    <dl class="stats">
+                        <div>
+                            <dt>
+                                Lives left
+                            </dt>
+                            <dd id="lives">
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>
+                                Current streak
+                            </dt>
+                            <dd id="streak">
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>
+                                Best this visit
+                            </dt>
+                            <dd id="best">
+                            </dd>
+                        </div>
+                    </dl>
+                    <h2>
+                        How to play
+                    </h2>
+                    <ol class="instructions">
+                        <li>
+                            Look at the current price.
+                        </li>
+                        <li>
+                            Guess the direction of the next price.
+                        </li>
+                        <li>
+                            A wrong guess costs one life. A correct guess adds to your streak.
+                        </li>
+                    </ol>
+                    <p>
+                        The best streak survives a restart during this page visit. Reloading clears it.
+                    </p>
+                </aside>
+            </div>
+            <noscript>
+                <p class="notice">
+                    Enable JavaScript to use the interactive tasks.
+                </p>
+            </noscript>
+        </main>
+        <footer class="wrap">
+            Midnight Crate / A student JavaScript project. Demo only; no real purchases or bookings.
+        </footer>
+    </body>
+</html>
